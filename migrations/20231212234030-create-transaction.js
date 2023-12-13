@@ -16,7 +16,14 @@ module.exports = {
         type: Sequelize.NUMBER
       },
       userId: {
-        type: Sequelize.NUMBER
+        type: Sequelize.NUMBER,
+        allowNull:false,
+        references:{
+          model:'user',
+          key:'id'
+        },
+        onUpdate:'CASCADE',
+        onDelete:'CASCADE'
       },
       createdAt: {
         allowNull: false,
