@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('transactions', {
+    await queryInterface.createTable('Transactions', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,13 +13,13 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       amount: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       userId: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         allowNull:false,
         references:{
-          model:'user',
+          model:'User',
           key:'id'
         },
         onUpdate:'CASCADE',
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('transactions');
+    await queryInterface.dropTable('Transactions');
   }
 };

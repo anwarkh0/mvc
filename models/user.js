@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasMany(models.TransactionModel,{
-        foreignKey:"userid",
+        foreignKey:"userId",
         onUpdate:"CASCADE",
         onDelete:"CASCADE"
       })
